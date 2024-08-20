@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Highest score</title>
+</head>
+<body>
+    <h2>Let's see who gets the majority!!</h2>
+    
+    <div class="player-section">
+        <h5>PLAYER 1</h5>
+        <div class="button-row">
+            <button id="btn-1" onclick="generateRandom1()">CARD 1</button>
+            <p id="result1"></p>
+            <button id="btn-2" onclick="generateRandom2()">CARD 2</button>
+            <p id="result2"></p>
+            <button id="btn-3" onclick="generateRandom3()">CARD 3</button>
+            <p id="result3"></p>
+            <button id="total1" onclick="sum1()">Points</button>
+            <p id="display1"></p>
+        </div>
+    </div>
+    
+    <div class="player-section">
+        <h5>PLAYER 2</h5>
+        <div class="button-row">
+            <button id="btn-4" onclick="generateRandom4()">CARD 1</button>
+            <p id="result4"></p>
+            <button id="btn-5" onclick="generateRandom5()">CARD 2</button>
+            <p id="result5"></p>
+            <button id="btn-6" onclick="generateRandom6()">CARD 3</button>
+            <p id="result6"></p>
+            <button id="total2" onclick="sum2()">Points</button>
+            <p id="display2"></p>
+        </div>
+    </div>
+    
+    <div class="player-section">
+        <h5>PLAYER 3</h5>
+        <div class="button-row">
+            <button id="btn-7" onclick="generateRandom7()">CARD 1</button>
+            <p id="result7"></p>
+            <button id="btn-8" onclick="generateRandom8()">CARD 2</button>
+            <p id="result8"></p>
+            <button id="btn-9" onclick="generateRandom9()">CARD 3</button>
+            <p id="result9"></p>
+            <button id="total3" onclick="sum3()">Points</button>
+            <p id="display3"></p>
+        </div>
+    </div>
+
+    <button id="winner" onclick="getWinner()">Winner</button>
+    <div id="win">
+
+    </div>
+
+    <script>
+        var res1 = document.getElementById("result1")
+        var res2 = document.getElementById("result2")
+        var res3 = document.getElementById("result3")
+        var res4 = document.getElementById("result4")
+        var res5 = document.getElementById("result5")
+        var res6 = document.getElementById("result6")
+        var res7 = document.getElementById("result7")
+        var res8 = document.getElementById("result8")
+        var res9 = document.getElementById("result9")
+        function generateRandom1(){
+            var num = Math.floor(Math.random()*10)+1
+            res1.innerHTML = num;
+        }
+        function generateRandom2(){
+            var num = Math.floor(Math.random()*10)+1
+            res2.innerHTML = num;
+        }
+        function generateRandom3(){
+            var num = Math.floor(Math.random()*10)+1
+            res3.innerHTML = num;
+        }
+        function generateRandom4(){
+            var num = Math.floor(Math.random()*10)+1
+            res4.innerHTML = num;
+        }
+        function generateRandom5(){
+            var num = Math.floor(Math.random()*10)+1
+            res5.innerHTML = num;
+        }
+        function generateRandom6(){
+            var num = Math.floor(Math.random()*10)+1
+            res6.innerHTML = num;
+        }
+        function generateRandom7(){
+            var num = Math.floor(Math.random()*10)+1
+            res7.innerHTML = num;
+        } 
+        function generateRandom8(){
+            var num = Math.floor(Math.random()*10)+1
+            res8.innerHTML = num;
+        }
+        function generateRandom9(){
+            var num = Math.floor(Math.random()*10)+1
+            res9.innerHTML = num;
+        }
+        
+        var a = document.getElementById('display1');
+        var b = document.getElementById('display2');
+        var c = document.getElementById('display3');
+
+        function sum1(){
+           var sum = Number(res1.textContent)+Number(res2.textContent)+Number(res3.textContent)
+           a.innerHTML = sum
+        }
+
+        function sum2(){
+           var sum = Number(res4.textContent)+Number(res5.textContent)+Number(res6.textContent)
+           b.innerHTML = sum
+        }
+
+        function sum3(){
+           var sum = Number(res7.textContent)+Number(res8.textContent)+Number(res9.textContent)
+           c.innerHTML = sum
+        }
+
+        function getWinner(){
+            var d = Number(a.textContent)
+            var e = Number(b.textContent)
+            var f = Number(c.textContent)
+            var champion = document.getElementById("win")
+            if(d>e && d>f){
+                champion.innerHTML = "PLAYER 1 is the winner of this game"
+            } else if (e>d && e>f){
+                champion.innerHTML = "PLAYER 2 is the winner of this game"
+            } else {
+                champion.innerHTML = "PLAYER 3 is the winner of this game"
+            }
+        }
+
+    </script>
+
+</body>
+</html>

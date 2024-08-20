@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Random Number Game</title>
+</head>
+<body>
+    <h1>Guess the number correctly and win the game!!</h1>
+    <label for="question">Enter a number between 1 to 10</label>
+    <input type="number" id="question"><br>
+    <button id="btn" onclick="verify()">Check</button>
+    <button id="btn-1" onclick="playAgain()">Play Again</button>
+    <p id="result">
+
+    </p>
+    <script>
+        var res = document.getElementById("result")
+        var btn = document.getElementById("btn")
+        var retry = document.getElementById("btn-1")
+        var attempts_left = 10
+        var flag = 0
+        res.innerHTML = "Attempts left : " + attempts_left
+        function verify(){
+            var random = Math.floor(Math.random()*10)+1
+            console.log("Random Number Generated " + random)
+            var num = document.getElementById("question").value
+            console.log("Value Entered " + num)
+            if(random == num){
+                flag = 1;
+                res.innerHTML = "You Won the Game!!"
+                btn.disabled = true
+            } else {
+                attempts_left --;
+                res.innerHTML = "Attempts left : " + attempts_left
+                console.log("Attempts left " + attempts_left)
+                if(attempts_left==0){
+                    btn.disabled = true;
+                    res.innerHTML = "Game Over!!"
+                }
+            }
+            if(flag == 1){
+                attempts_left = 10;
+                flag = 0;
+            }
+        }
+
+        function playAgain(){
+            attempts_left = 11;
+            btn.disabled = false
+            verify();
+        }
+    </script>
+</body>
+</html>
